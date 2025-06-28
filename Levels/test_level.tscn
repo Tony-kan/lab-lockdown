@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6s86xxej1t2r"]
+
+[ext_resource type="PackedScene" uid="uid://vs8r75j1iw1e" path="res://Player/player.tscn" id="1_ormqy"]
+[ext_resource type="Texture2D" uid="uid://dwuvky4lpdqnb" path="res://Assets/Environment/Layers/tileset.png" id="2_00vsl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k50d"]
+atlas = ExtResource("2_00vsl")
+region = Rect2(14.5, 60.75, 66.5, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ak4"]
+size = Vector2(65, 31)
+
+[node name="Test Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ormqy")]
+position = Vector2(420, 285)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(425, 427)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = SubResource("AtlasTexture_4k50d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_i4ak4")
